@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Green-Earth</title>
+    <!-- font awesome  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- inter fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- tailwind+daisyui  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- stylesheet  -->
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <header class="bg-[#15803D]">
+      <div class="navbar shadow-sm max-w-[1650px] mx-auto px-5">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div
+              tabindex="0"
+              role="button"
+              class="btn btn-ghost lg:hidden text-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            >
+              <li><a href="#">About</a></li>
+              <li><a href="#">Gallery</a></li>
+              <li><a href="#">Plant a Tree</a></li>
+            </ul>
+          </div>
+          <a
+            class="btn btn-ghost text-xl text-white hover:bg-[#15803D] border-none"
+            >Green Earth</a
+          >
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1 text-white">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Plant a Tree</a></li>
+          </ul>
+        </div>
+        <div class="navbar-end">
+          <a class="btn bg-[#FACC15] border-none rounded-full text-[#15803D]"
+            >Plant a Tree</a
+          >
+        </div>
+      </div>
+    </header>
+    <main class="bg-[#F0FDF4]">
+      <section class="banner-section bg-[#CFF0DC] overflow-hidden">
+        <div class="max-w-[1650px] mx-auto px-5">
+          <div
+            class="relative flex flex-col lg:flex-row items-center justify-center gap-5"
+          >
+            <img
+              class="absolute bottom-0 -left-20 hidden xl:block max-w-[400px]"
+              src="assets/left-tree-leaves.png"
+              alt="left-tree-leaves"
+            />
+
+            <div class="text-center mx-auto my-24">
+              <h2
+                class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold"
+              >
+                Plant a Tree, Grow a Future
+              </h2>
+              <p class="mt-3 lg:mt-5 text-base max-w-60 mx-auto lg:max-w-xl">
+                Join our mission to plant 1 million trees and make the Earth
+                greener for future generations.
+              </p>
+              <button
+                class="btn bg-[#FACC15] border-none rounded-full text-[#15803D] mt-5 lg:mt-9"
+              >
+                Get Involved
+              </button>
+            </div>
+
+            <img
+              class="absolute bottom-0 -right-20 hidden xl:block max-w-[400px]"
+              src="assets/right-tree-leaves.png"
+              alt="right-tree-leaves"
+            />
+          </div>
+        </div>
+      </section>
+      <section class="choose-your-trees py-24">
+        <h1 class="text-3xl font-semibold text-center">Choose Your Trees</h1>
+        <div class="max-w-[1650px] mx-auto px-5 mt-12 grid grid-cols-12 gap-8">
+          <div class="col-span-12 lg:col-span-2 text-center lg:text-left">
+            <div id="categories-container"></div>
+          </div>
+          <div
+            id="plants-container"
+            class="col-span-12 lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          ></div>
+          <div id="your-cart" class="col-span-12 lg:col-span-2 bg-white p-4">
+            <h2 class="text-xl font-semibold mb-2">Your Cart</h2>
+            <div
+              class="bg-[#F0FDF4] flex items-center justify-between px-3 py-2"
+            >
+              <div>
+                <h5 class="text-sm font-semibold mb-1">Mango Tree</h5>
+                <p class="text-[#8C8C8C]">৳500 x 1</p>
+              </div>
+              <span><i class="fa-solid fa-x text-[#8C8C8C]"></i></span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="script/index.js"></script>
+  </body>
+</html>
