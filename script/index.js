@@ -64,6 +64,7 @@ const loadTreesByCategorie = (id) => {
     });
 };
 
+// display Plants
 const displayPlantsByCategorie = (plants) => {
   const plantsContainer = document.getElementById("plants-container");
   plantsContainer.innerHTML = "";
@@ -73,9 +74,9 @@ const displayPlantsByCategorie = (plants) => {
         <img class="rounded-lg w-full h-full" src="${plant.image}" alt="plants-img">
         <h2 class="text-sm font-semibold my-3">${plant.name}</h2>
         <p class="text-xs">${plant.description}</p>
-        <div class="flex items-center justify-between">
+        <div id="${plant.id}" class="flex items-center justify-between">
           <button class="btn rounded-full border-none text-sm text-[#15803D] bg-[#DCFCE7] my-3">${plant.category}</button>
-          <p>৳${plant.price}</p>
+          <p>৳<span>${plant.price}</span></p>
         </div>
         <button class="btn border-none text-white bg-[#15803D] w-full rounded-full">Add to Cart</button>
       </div>
@@ -83,4 +84,67 @@ const displayPlantsByCategorie = (plants) => {
   });
 };
 
+// add to card event
+const plantsContainer = document.getElementById("plants-container");
+plantsContainer.addEventListener("click", (e) => {
+  if (e.target.innerText === "Add to Cart") {
+    handleBookMarkCart(e);
+  }
+});
+
+// card container
+const CartContainer = document.getElementById("cart-container");
+let bookMarks = [];
+let totalPrice = 0;
+
+// Add to cart handle
+const handleBookMarkCart = (e) => {
+  // console.log(e.target);
+  const title = e.target.parentNode.children[1].innerText;
+  const priceTarget = e.target.parentNode.children[3];
+  const spanTagPrice = priceTarget.querySelector("span");
+  const price = parseInt(spanTagPrice.innerText);
+
+  const id = priceTarget.id;
+
+  bookMarks.push({
+    title: title,
+    price: price,
+    id: id,
+  });
+
+  showBookMarksCart(bookMarks);
+};
+
+// display card
+const showBookMarksCart = (bookMarks) => {
+  CartContainer.innerHTML = "";
+  totalPrice = 0;
+  bookMarks.forEach((bookMark, index) => {
+    totalPrice += bookMark.price;
+    CartContainer.innerHTML += `
+      <div
+        class="bg-[#F0FDF4] flex items-center justify-between px-3 py-2 my-3 rounded"
+      >
+        <div>
+          <h5 class="text-sm font-semibold mb-1">${bookMark.title}</h5>
+          <p class="text-[#8C8C8C]">৳${bookMark.price}</p>
+        </div>
+        <button class="cursor-pointer" onclick="handleDeleteBookmarkCart(${index})">
+          <i class="fa-solid fa-x text-[#8C8C8C]"></i>
+        </button>
+      </div>
+    `;
+  });
+
+  document.getElementById("total-price").innerText = `৳${totalPrice}`;
+};
+
+const handleDeleteBookmarkCart = (index) => {
+  // delete item
+  bookMarks.splice(index, 1);
+  showBookMarksCart(bookMarks);
+};
+
+// loadCategories
 loadCategories();

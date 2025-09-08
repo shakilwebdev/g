@@ -124,22 +124,23 @@
         <h1 class="text-3xl font-semibold text-center">Choose Your Trees</h1>
         <div class="max-w-[1650px] mx-auto px-5 mt-12 grid grid-cols-12 gap-8">
           <div class="col-span-12 lg:col-span-2 text-center lg:text-left">
+            <h2 class="text-2xl font-semibold py-3">Categories</h2>
             <ul id="categories-container"></ul>
           </div>
           <div
             id="plants-container"
             class="col-span-12 lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
           ></div>
-          <div id="your-cart" class="col-span-12 lg:col-span-2 bg-white p-4">
+
+          <div class="your-cart-section col-span-12 lg:col-span-2 bg-white p-4">
             <h2 class="text-xl font-semibold mb-2">Your Cart</h2>
+            <div id="cart-container"></div>
+            <!-- total price  -->
             <div
-              class="bg-[#F0FDF4] flex items-center justify-between px-3 py-2"
+              class="flex items-center justify-between mt-4 font-semibold text-lg"
             >
-              <div>
-                <h5 class="text-sm font-semibold mb-1">Mango Tree</h5>
-                <p class="text-[#8C8C8C]">৳500 x 1</p>
-              </div>
-              <span><i class="fa-solid fa-x text-[#8C8C8C]"></i></span>
+              <span>Total:</span>
+              <span id="total-price">৳0</span>
             </div>
           </div>
         </div>
